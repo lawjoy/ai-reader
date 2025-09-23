@@ -3,9 +3,21 @@ spring:
     name: ai-reader
   profiles:
     active: local
+server:
+  port: 8081
+  servlet:
+    context-path: /api
 langchain4j:
   community:
     dashscope:
       chat-model:
         model-name: qwen-plus-2025-09-11
         api-key: ${your-key}
+      embedding-model:
+        model-name: text-embedding-v4
+        api-key: ${your-key}
+      streaming-chat-model:
+        model-name: qwen-plus-2025-09-11
+        api-key: ${your-key}
+bigmodel:
+  api-key: ${your-mcp-key}
