@@ -21,14 +21,15 @@ public class AiReaderServiceFactory {
     @Resource
     private ChatModel myQwenChatModel;
 
-    @Resource
-    private ContentRetriever contentRetriever;
+//    @Resource
+//    private ContentRetriever contentRetriever;
 
     @Resource
     private McpToolProvider mcpToolProvider;
 
     @Resource
     private StreamingChatModel streamingChatModel;
+
     @Bean
     public AiReaderService aiReaderService(){
         ChatMemory chatMemory = MessageWindowChatMemory.withMaxMessages(10);
@@ -38,7 +39,7 @@ public class AiReaderServiceFactory {
                 .chatMemory(chatMemory)//会话记忆
                 .chatMemoryProvider(memoryId ->
                         MessageWindowChatMemory.withMaxMessages(10)) // 每个会话独立存储
-                .contentRetriever(contentRetriever) // RAG 检索增强生成
+                //.contentRetriever(contentRetriever) // RAG 检索增强生成
                 .tools(new InterviewQuestionTool())//工具
                 .toolProvider(mcpToolProvider)//MCP
                 .build();

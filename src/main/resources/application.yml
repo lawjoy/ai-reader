@@ -21,3 +21,9 @@ langchain4j:
         api-key: ${your-key}
 bigmodel:
   api-key: ${your-mcp-key}
+
+#####baidu trans
+baidu-trans:
+  id: ${app.id}
+  secret: ${app.secret}
+  salt: https://fanyi-api.baidu.com/api/trans/vip/translate

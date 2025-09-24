@@ -16,19 +16,19 @@ import java.util.List;
 @Data
 public class QwenChatModelConfig {
 
-private String modelName;
+  private String modelName;
 
-private String apiKey;
+  private String apiKey;
 
-@Resource
-private ChatModelListener chatModelListener;
-
-@Bean
-public ChatModel myQwenChatModel() {
+  @Resource
+  private ChatModelListener chatModelListener;
+ //传入过滤器
+  @Bean
+  public ChatModel myQwenChatModel() {
     return QwenChatModel.builder()
             .apiKey(apiKey)
             .modelName(modelName)
             .listeners(List.of(chatModelListener))
             .build();
-}
+  }
 }

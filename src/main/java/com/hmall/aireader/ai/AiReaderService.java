@@ -20,7 +20,7 @@ public interface AiReaderService {
 
     record Report(String name, List<String> suggestionList){};
 
-    // 流式对话
+    // 最终实现，流式对话
     @SystemMessage(fromResource = "system-prompt.txt")
     Flux<String> chatStream(@MemoryId int memoryId, @UserMessage String userMessage);
 }
